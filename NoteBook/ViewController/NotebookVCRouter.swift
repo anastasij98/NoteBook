@@ -28,6 +28,5 @@ extension NotebookVCRouter: NotebookVCRouterProtocol {
         guard let navigationController = self.view?.navigationController else { return }
         AddNoteConfigurator.open(navigationController: navigationController,
                                  completion: completion)
-        print("go!")
     }
 }

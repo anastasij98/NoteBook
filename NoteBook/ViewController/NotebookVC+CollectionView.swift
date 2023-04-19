@@ -12,15 +12,44 @@ import UIKit
 extension NoteBookViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        let detailedVC = NoteDescriptionViewController()
-        //
-        //        detailedVC.titleField.text = notes[indexPath.row].title
-        //        detailedVC.noteField.text = notes[indexPath.row].text
-        //
-        //        navigationController?.pushViewController(detailedVC, animated: true)
-        //
+//        presenter?.readViewController()
+//        presenter?.addViewControllerAndNote()
+
+        presenter?.goToViewController()
         tableView.deselectRow(at: indexPath, animated: true)
     }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let delete = UIContextualAction(style: .destructive,
+//                                        title: "delete") { (action, view, handler) in
+//            self.presenter?.deleteRow(index: indexPath.row,
+//                                 completion: {
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//            })
+//        }
+//        delete.backgroundColor = .red
+//
+//        var actions: [UIContextualAction] = [UIContextualAction]()
+//        actions.append(delete)
+//
+//        let configuration = UISwipeActionsConfiguration(actions: actions)
+//
+//        return configuration
+//    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter?.deleteRow(index: indexPath.row,
+                                 completion: {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            })
+        }
+    }
+
 }
 
 // MARK: - UITableViewDataSource

@@ -11,6 +11,8 @@ protocol NoteBookViewControllerProtocol: AnyObject {
     
     func notesInTableView(notesAreInMemory: Bool)
     func reloadTableView() 
+//    func deleteRow(indexPath: IndexPath)
+//    func deleteRow(completion: () -> Void)
 
 }
 
@@ -104,28 +106,10 @@ class NoteBookViewController: UIViewController {
             noNotesLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         ])
     }
-    
-//    @objc
-//    func addNewNote() {
-//        let nextVC = AddNoteViewController()
-//        navigationController?.pushViewController(nextVC, animated: true)
-//        
-//        nextVC.completion = {noteTitle, note in
-//            let model = NoteModel(title: noteTitle,
-//                                  text: note)
-//            self.notes.append(model)
-//            
-//            if let encoded = try? JSONEncoder().encode(self.notes) {
-//                UserDefaults.standard.set(encoded, forKey: self.key)
-//            }
-//            
-//            self.tableView.reloadData()
-//        }
-//    }
-    
+
     @objc
     func addNewNote() {
-        presenter?.addViewControllerAndNote()
+        presenter?.goToViewController()
     }
 }
 
@@ -139,5 +123,10 @@ extension NoteBookViewController: NoteBookViewControllerProtocol {
     func reloadTableView() {
         tableView.reloadData()
     }
+    
+//    func deleteRow(completion: () -> Void) {
+//        tableView.deleteRows(at: [completion],
+//                             with: .automatic)
+//    }
 
 }

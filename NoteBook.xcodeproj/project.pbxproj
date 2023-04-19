@@ -14,6 +14,7 @@
 		479E68DE29ED7EE60053E706 /* NotebookVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68DD29ED7EE60053E706 /* NotebookVCRouter.swift */; };
 		479E68E029ED91CA0053E706 /* NotebookVCConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68DF29ED91CA0053E706 /* NotebookVCConfigurator.swift */; };
 		479E68E329EED83B0053E706 /* AddNoteConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68E229EED83B0053E706 /* AddNoteConfigurator.swift */; };
+		479E68E529F02E640053E706 /* ScreenMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68E429F02E640053E706 /* ScreenMode.swift */; };
 		47D72DD129E8AFAE00E37909 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D72DD029E8AFAE00E37909 /* AddNoteViewController.swift */; };
 		47E07EAA29CF815A004E50D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E07EA929CF815A004E50D7 /* AppDelegate.swift */; };
 		47E07EAC29CF815A004E50D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E07EAB29CF815A004E50D7 /* SceneDelegate.swift */; };
@@ -21,7 +22,6 @@
 		47E07EB129CF815A004E50D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E07EAF29CF815A004E50D7 /* Main.storyboard */; };
 		47E07EB329CF815B004E50D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E07EB229CF815B004E50D7 /* Assets.xcassets */; };
 		47E07EB629CF815B004E50D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E07EB429CF815B004E50D7 /* LaunchScreen.storyboard */; };
-		47E07EBE29CF8E01004E50D7 /* NoteDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E07EBD29CF8E01004E50D7 /* NoteDescriptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +31,7 @@
 		479E68DD29ED7EE60053E706 /* NotebookVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookVCRouter.swift; sourceTree = "<group>"; };
 		479E68DF29ED91CA0053E706 /* NotebookVCConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookVCConfigurator.swift; sourceTree = "<group>"; };
 		479E68E229EED83B0053E706 /* AddNoteConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteConfigurator.swift; sourceTree = "<group>"; };
+		479E68E429F02E640053E706 /* ScreenMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenMode.swift; sourceTree = "<group>"; };
 		47D72DD029E8AFAE00E37909 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		47E07EA629CF815A004E50D7 /* NoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E07EA929CF815A004E50D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		47E07EB229CF815B004E50D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47E07EB529CF815B004E50D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47E07EB729CF815B004E50D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47E07EBD29CF8E01004E50D7 /* NoteDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDescriptionViewController.swift; sourceTree = "<group>"; };
 		60BF66B0F68754CB6A620DD8 /* Pods_NoteBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoteBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		839A5CD99CD9037BD366D923 /* Pods-NoteBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteBook.debug.xcconfig"; path = "Target Support Files/Pods-NoteBook/Pods-NoteBook.debug.xcconfig"; sourceTree = "<group>"; };
 		BA07349DA2285489B642A5ED /* Pods-NoteBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteBook.release.xcconfig"; path = "Target Support Files/Pods-NoteBook/Pods-NoteBook.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +66,7 @@
 				479E68DD29ED7EE60053E706 /* NotebookVCRouter.swift */,
 				479E68DB29ED68290053E706 /* NotebookVC+CollectionView.swift */,
 				479E68DF29ED91CA0053E706 /* NotebookVCConfigurator.swift */,
+				479E68E429F02E640053E706 /* ScreenMode.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -105,7 +106,6 @@
 				479E68D629ED672D0053E706 /* UserDefultsService.swift */,
 				479E68DA29ED674C0053E706 /* ViewController */,
 				479E68E129EDAC320053E706 /* AddNoteViewController */,
-				47E07EBD29CF8E01004E50D7 /* NoteDescriptionViewController.swift */,
 				47E07EAF29CF815A004E50D7 /* Main.storyboard */,
 				47E07EB229CF815B004E50D7 /* Assets.xcassets */,
 				47E07EB429CF815B004E50D7 /* LaunchScreen.storyboard */,
@@ -249,13 +249,13 @@
 				479E68D929ED67420053E706 /* NotebookVCPresenter.swift in Sources */,
 				479E68D729ED672D0053E706 /* UserDefultsService.swift in Sources */,
 				479E68DE29ED7EE60053E706 /* NotebookVCRouter.swift in Sources */,
-				47E07EBE29CF8E01004E50D7 /* NoteDescriptionViewController.swift in Sources */,
 				47E07EAE29CF815A004E50D7 /* NotebookVC.swift in Sources */,
 				479E68E329EED83B0053E706 /* AddNoteConfigurator.swift in Sources */,
 				47E07EAA29CF815A004E50D7 /* AppDelegate.swift in Sources */,
 				47D72DD129E8AFAE00E37909 /* AddNoteViewController.swift in Sources */,
 				47E07EAC29CF815A004E50D7 /* SceneDelegate.swift in Sources */,
 				479E68E029ED91CA0053E706 /* NotebookVCConfigurator.swift in Sources */,
+				479E68E529F02E640053E706 /* ScreenMode.swift in Sources */,
 				479E68DC29ED68290053E706 /* NotebookVC+CollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

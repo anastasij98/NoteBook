@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class AddNoteViewController: UIViewController {
     
@@ -24,6 +25,8 @@ class AddNoteViewController: UIViewController {
     }()
     
     public var completion: ((String, String) -> Void)?
+    
+    var mode = ScreenMode.readMode
     
     override func viewDidLoad() {
         super.viewDidLoad()

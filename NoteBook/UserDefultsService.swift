@@ -12,40 +12,38 @@ protocol UserDefultsServiceProtocol {
     /// saveNotes
     /// - Parameters:
     ///   - note: передаваемый массив для кодирования и сохранения в userDefults
-    ///   - key: ключ, под которым будет доступ к массиву
-    func saveNotes(note: [NoteModel], key: String)
+    func saveNotes(note: [NoteModel])
     
     /// getNotes
-    /// - Parameters:
-    ///   - key: ключ, по которому можно получить доступ к массиву
-    ///   - completion: замыкание, передающие раскодрованный массив
-    func getNotes(key: String,
-                  completion: @escaping ([NoteModel]) -> Void)
+    func getNotes() -> [NoteModel]
+
 }
 
 class UserDefultsService {
     
+    var noteKey = "keyNotes"
 }
 
 extension UserDefultsService: UserDefultsServiceProtocol {
     
-    func saveNotes(note: [NoteModel], key: String) {
+    func saveNotes(note: [NoteModel]) {
         if let encoded = try? JSONEncoder().encode(note) {
-            UserDefaults.standard.set(encoded, forKey: key)
+            UserDefaults.standard.set(encoded, forKey: noteKey)
         }
-        print("encoded")
     }
-    
-    func getNotes(key: String,
-                  completion: @escaping ([NoteModel]) -> Void) {
-        if let data = UserDefaults.standard.object(forKey: key) as? Data {
+
+    func getNotes() -> [NoteModel] {
+        var decodedData = [NoteModel]()
+        if let data = UserDefaults.standard.object(forKey: noteKey) as? Data {
             do {
                 let decoded = try JSONDecoder().decode([NoteModel].self, from: data)
-                completion(decoded)
-            } catch  {
+                decodedData = decoded
+            } catch {
                 print(error)
             }
         }
+
+        return decodedData
     }
 }
 

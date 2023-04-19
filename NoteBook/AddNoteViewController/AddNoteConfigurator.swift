@@ -17,6 +17,7 @@ class AddNoteConfigurator {
     }
     
     static func getViewController(completion: ((String, String) -> Void)?) -> AddNoteViewController {
+        
         let viewController = AddNoteViewController()
         viewController.completion = completion
         return viewController
