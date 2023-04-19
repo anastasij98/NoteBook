@@ -7,12 +7,16 @@
 import Foundation
 import UIKit
 
-struct NoteModel: Codable {
-    let title: String
-    let text: String
+protocol NoteBookViewControllerProtocol: AnyObject {
+    
+    func notesInTableView(notesAreInMemory: Bool)
+    func reloadTableView() 
+
 }
 
 class NoteBookViewController: UIViewController {
+    
+   var presenter: NotebookVCPresenterProtocol?
     
    lazy var tableView: UITableView = {
         var view = UITableView()
@@ -40,7 +44,9 @@ class NoteBookViewController: UIViewController {
     }()
     
     var identifier = "cell"
-    var notes: [NoteModel] = []
+
+//    var key = "notes"
+//    var notes: [NoteModel] = []
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,22 +54,25 @@ class NoteBookViewController: UIViewController {
         setupNoteBookScreen()
         setupTableView()
         
-        if let data = UserDefaults.standard.object(forKey: "notes") as? Data,
-           let decoded = try? JSONDecoder().decode([NoteModel].self, from: data) {
-            notes = decoded
-        }
+        presenter?.viewIsReady()
+        
+//        if let data = UserDefaults.standard.object(forKey: key) as? Data,
+//           let decoded = try? JSONDecoder().decode([NoteModel].self, from: data) {
+//            notes = decoded
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if notes.isEmpty {
-            tableView.isHidden = true
-            noNotesLabel.isHidden = false
-        } else {
-            tableView.isHidden = false
-            noNotesLabel.isHidden = true
-        }
+        presenter?.viewWillAppear()
+//        if notes.isEmpty {
+//            tableView.isHidden = true
+//            noNotesLabel.isHidden = false
+//        } else {
+//            tableView.isHidden = false
+//            noNotesLabel.isHidden = true
+//        }
     }
     
     func setupNoteBookScreen() {
@@ -72,7 +81,7 @@ class NoteBookViewController: UIViewController {
     }
     
     func setupTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -96,54 +105,39 @@ class NoteBookViewController: UIViewController {
         ])
     }
     
+//    @objc
+//    func addNewNote() {
+//        let nextVC = AddNoteViewController()
+//        navigationController?.pushViewController(nextVC, animated: true)
+//        
+//        nextVC.completion = {noteTitle, note in
+//            let model = NoteModel(title: noteTitle,
+//                                  text: note)
+//            self.notes.append(model)
+//            
+//            if let encoded = try? JSONEncoder().encode(self.notes) {
+//                UserDefaults.standard.set(encoded, forKey: self.key)
+//            }
+//            
+//            self.tableView.reloadData()
+//        }
+//    }
+    
     @objc
     func addNewNote() {
-        let nextVC = AddNoteViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
-        
-        nextVC.completion = {noteTitle, note in
-            let model = NoteModel(title: noteTitle,
-                                  text: note)
-            self.notes.append(model)
-
-            if let encoded = try? JSONEncoder().encode(self.notes) {
-                UserDefaults.standard.set(encoded, forKey: "notes")
-            }
-            
-            self.tableView.reloadData()
-        }
-    }
-}
-// MARK: - UITableViewDelegate
-extension NoteBookViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailedVC = NoteDescriptionViewController()
-        detailedVC.titleField.text = notes[indexPath.row].title
-        detailedVC.noteField.text = notes[indexPath.row].text
-
-        navigationController?.pushViewController(detailedVC, animated: true)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+        presenter?.addViewControllerAndNote()
     }
 }
 
-// MARK: - UITableViewDataSource
-extension NoteBookViewController: UITableViewDataSource {
+extension NoteBookViewController: NoteBookViewControllerProtocol {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+    func notesInTableView(notesAreInMemory: Bool) {
+        tableView.isHidden = notesAreInMemory
+        noNotesLabel.isHidden = !notesAreInMemory
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        
-        var content = cell.defaultContentConfiguration()
-        content.text = notes[indexPath.row].title
-        content.secondaryText = notes[indexPath.row].text
-        cell.contentConfiguration = content
+    func reloadTableView() {
+        tableView.reloadData()
+    }
 
-        return cell
-    }
-    
 }

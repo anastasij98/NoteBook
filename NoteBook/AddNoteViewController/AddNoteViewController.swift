@@ -39,7 +39,6 @@ class AddNoteViewController: UIViewController {
         self.view.backgroundColor = .white
     }
     
-    
     func setupNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",
                                                             style: .done,
@@ -70,15 +69,10 @@ class AddNoteViewController: UIViewController {
     
     @objc
     func saveNewNote() {
-//        if let text = titleField.text, !text.isEmpty, noteField.hasText {
-//            completion?(text, noteField.text)
-//        }
         if titleField.hasText, noteField.hasText {
             completion?(titleField.text ?? "", noteField.text)
         }
         navigationController?.popViewController(animated: true)
+        print("saved")
     }
-    
 }
-
-
