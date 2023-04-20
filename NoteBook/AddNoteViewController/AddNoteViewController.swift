@@ -9,8 +9,16 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol AddNoteVCProtocol: AnyObject {
+    
+    func canEditFields(canEdit: Bool)
+    func fieldsBackgroundColor()
+}
+
 class AddNoteViewController: UIViewController {
     
+    var presenter: AddNotePresenterProtocol?
+
     lazy var titleField: UITextField = {
         let view = UITextField()
         view.backgroundColor = .systemMint.withAlphaComponent(0.1)
@@ -25,15 +33,15 @@ class AddNoteViewController: UIViewController {
     }()
     
     public var completion: ((String, String) -> Void)?
-    
-    var mode = ScreenMode.readMode
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleField.becomeFirstResponder()
         setupNavigationItem()
         setupNoteViewController()
+        
+        presenter?.viewIsReady()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +83,20 @@ class AddNoteViewController: UIViewController {
         if titleField.hasText, noteField.hasText {
             completion?(titleField.text ?? "", noteField.text)
         }
-        navigationController?.popViewController(animated: true)
+        presenter?.saveNewNote()
         print("saved")
+    }
+}
+
+extension AddNoteViewController: AddNoteVCProtocol {
+    
+    func canEditFields(canEdit: Bool) {
+        titleField.isUserInteractionEnabled = canEdit
+        noteField.isUserInteractionEnabled = canEdit
+    }
+
+    func fieldsBackgroundColor() {
+        titleField.backgroundColor = .placeholderText
+        noteField.backgroundColor = .placeholderText
     }
 }

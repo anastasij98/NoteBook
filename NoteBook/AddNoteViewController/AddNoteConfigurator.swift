@@ -11,15 +11,26 @@ import UIKit
 class AddNoteConfigurator {
     
     static func open(navigationController: UINavigationController,
+                     mode: ScreenMode,
                      completion: ((String, String) -> Void)?) {
-        let viewController = Self.getViewController(completion: completion)
+        let viewController = Self.getViewController(mode: mode,
+                                                    completion: completion)
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    static func getViewController(completion: ((String, String) -> Void)?) -> AddNoteViewController {
+    static func getViewController(mode: ScreenMode,
+                                  completion: ((String, String) -> Void)?) -> AddNoteViewController {
         
         let viewController = AddNoteViewController()
+        let router = AddNoteRouter()
+        
+        let presenter = AddNotePresenter(view: viewController,
+                                         router: router,
+                                         mode: mode)
+        router.view = viewController
+        viewController.presenter = presenter
         viewController.completion = completion
+        
         return viewController
     }
 }

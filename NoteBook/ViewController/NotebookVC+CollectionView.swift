@@ -12,16 +12,14 @@ import UIKit
 extension NoteBookViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        presenter?.readViewController()
-//        presenter?.addViewControllerAndNote()
-
-        presenter?.goToViewController()
+        presenter?.goToViewController(mode: .readMode)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+//  Оставила этот метод закомментированным, ибо он тоже работает для удаления ячейки
     
 //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 //        let delete = UIContextualAction(style: .destructive,
@@ -49,7 +47,6 @@ extension NoteBookViewController: UITableViewDelegate {
             })
         }
     }
-
 }
 
 // MARK: - UITableViewDataSource

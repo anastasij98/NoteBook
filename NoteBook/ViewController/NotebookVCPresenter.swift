@@ -15,7 +15,7 @@ struct NoteModel: Codable {
 protocol NotebookVCPresenterProtocol {
     
     func viewIsReady()
-    func goToViewController()
+    func goToViewController(mode: ScreenMode)
     func viewWillAppear()
     func getNotesCount() -> Int
     func getItem(index: Int) -> NoteModel
@@ -28,7 +28,6 @@ class NotebookVCPresenter {
     weak var view: NoteBookViewControllerProtocol?
     var router: NotebookVCRouterProtocol
     var usersdefaultService: UserDefultsServiceProtocol
-    
     
     var noteKey = "keyNotes"
     var notes: [NoteModel] = []
@@ -48,8 +47,8 @@ extension NotebookVCPresenter: NotebookVCPresenterProtocol {
         notes = usersdefaultService.getNotes()
     }
     
-    func goToViewController() {
-        router.goToAddNoteViewController { noteTitle, note in
+    func goToViewController(mode: ScreenMode) {
+        router.goToAddNoteViewController(mode: mode) { noteTitle, note in
             let model = NoteModel(title: noteTitle,
                                   text: note)
             self.notes.append(model)
@@ -73,19 +72,12 @@ extension NotebookVCPresenter: NotebookVCPresenterProtocol {
     func getItem(index: Int) -> NoteModel {
         notes[index]
     }
-    
-//    func deleteRow(index: Int, indexPath: IndexPath) {
-//        notes.remove(at: index)
-//        usersdefaultService.saveNotes(note: notes)
-//
-//        view?.deleteRow(indexPath: indexPath)
-//    }
+
     func deleteRow(index: Int,
                    completion: () -> Void ) {
         notes.remove(at: index)
         usersdefaultService.saveNotes(note: notes)
         completion()
-//        view?.deleteRow(completion: completion)
     }
 }
 

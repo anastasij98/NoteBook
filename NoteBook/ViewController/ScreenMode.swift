@@ -12,6 +12,4 @@ enum ScreenMode: CaseIterable {
     
     case writeMode
     case readMode
-    
-  
 }

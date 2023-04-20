@@ -10,10 +10,7 @@ import UIKit
 protocol NoteBookViewControllerProtocol: AnyObject {
     
     func notesInTableView(notesAreInMemory: Bool)
-    func reloadTableView() 
-//    func deleteRow(indexPath: IndexPath)
-//    func deleteRow(completion: () -> Void)
-
+    func reloadTableView()
 }
 
 class NoteBookViewController: UIViewController {
@@ -47,9 +44,6 @@ class NoteBookViewController: UIViewController {
     
     var identifier = "cell"
 
-//    var key = "notes"
-//    var notes: [NoteModel] = []
- 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,24 +51,12 @@ class NoteBookViewController: UIViewController {
         setupTableView()
         
         presenter?.viewIsReady()
-        
-//        if let data = UserDefaults.standard.object(forKey: key) as? Data,
-//           let decoded = try? JSONDecoder().decode([NoteModel].self, from: data) {
-//            notes = decoded
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         presenter?.viewWillAppear()
-//        if notes.isEmpty {
-//            tableView.isHidden = true
-//            noNotesLabel.isHidden = false
-//        } else {
-//            tableView.isHidden = false
-//            noNotesLabel.isHidden = true
-//        }
     }
     
     func setupNoteBookScreen() {
@@ -109,7 +91,7 @@ class NoteBookViewController: UIViewController {
 
     @objc
     func addNewNote() {
-        presenter?.goToViewController()
+        presenter?.goToViewController(mode: .writeMode)
     }
 }
 
@@ -123,10 +105,4 @@ extension NoteBookViewController: NoteBookViewControllerProtocol {
     func reloadTableView() {
         tableView.reloadData()
     }
-    
-//    func deleteRow(completion: () -> Void) {
-//        tableView.deleteRows(at: [completion],
-//                             with: .automatic)
-//    }
-
 }

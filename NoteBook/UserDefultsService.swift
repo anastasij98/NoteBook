@@ -9,12 +9,12 @@ import Foundation
 
 protocol UserDefultsServiceProtocol {
     
-    /// saveNotes
+    /// saveNotes - метод, передающий массив данных в userDefaults
     /// - Parameters:
     ///   - note: передаваемый массив для кодирования и сохранения в userDefults
     func saveNotes(note: [NoteModel])
     
-    /// getNotes
+    /// getNotes - метод, возвращающий массив данных из userDefaults
     func getNotes() -> [NoteModel]
 
 }
@@ -42,7 +42,6 @@ extension UserDefultsService: UserDefultsServiceProtocol {
                 print(error)
             }
         }
-
         return decodedData
     }
 }

@@ -10,7 +10,8 @@ import UIKit
 
 protocol NotebookVCRouterProtocol {
     
-    func goToAddNoteViewController(completion: ((String, String) -> Void)?)
+    func goToAddNoteViewController(mode: ScreenMode,
+                                   completion: ((String, String) -> Void)?)
 }
 
 class NotebookVCRouter {
@@ -24,9 +25,11 @@ class NotebookVCRouter {
 
 extension NotebookVCRouter: NotebookVCRouterProtocol {
     
-    func goToAddNoteViewController(completion: ((String, String) -> Void)?) {
+    func goToAddNoteViewController(mode: ScreenMode,
+                                   completion: ((String, String) -> Void)?) {
         guard let navigationController = self.view?.navigationController else { return }
         AddNoteConfigurator.open(navigationController: navigationController,
+                                 mode: mode,
                                  completion: completion)
     }
 }

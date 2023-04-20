@@ -15,6 +15,8 @@
 		479E68E029ED91CA0053E706 /* NotebookVCConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68DF29ED91CA0053E706 /* NotebookVCConfigurator.swift */; };
 		479E68E329EED83B0053E706 /* AddNoteConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68E229EED83B0053E706 /* AddNoteConfigurator.swift */; };
 		479E68E529F02E640053E706 /* ScreenMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68E429F02E640053E706 /* ScreenMode.swift */; };
+		479E68E729F087DC0053E706 /* AddNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68E629F087DC0053E706 /* AddNotePresenter.swift */; };
+		479E68E929F08CBF0053E706 /* AddNoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68E829F08CBF0053E706 /* AddNoteRouter.swift */; };
 		47D72DD129E8AFAE00E37909 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D72DD029E8AFAE00E37909 /* AddNoteViewController.swift */; };
 		47E07EAA29CF815A004E50D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E07EA929CF815A004E50D7 /* AppDelegate.swift */; };
 		47E07EAC29CF815A004E50D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E07EAB29CF815A004E50D7 /* SceneDelegate.swift */; };
@@ -32,6 +34,8 @@
 		479E68DF29ED91CA0053E706 /* NotebookVCConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookVCConfigurator.swift; sourceTree = "<group>"; };
 		479E68E229EED83B0053E706 /* AddNoteConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteConfigurator.swift; sourceTree = "<group>"; };
 		479E68E429F02E640053E706 /* ScreenMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenMode.swift; sourceTree = "<group>"; };
+		479E68E629F087DC0053E706 /* AddNotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotePresenter.swift; sourceTree = "<group>"; };
+		479E68E829F08CBF0053E706 /* AddNoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteRouter.swift; sourceTree = "<group>"; };
 		47D72DD029E8AFAE00E37909 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		47E07EA629CF815A004E50D7 /* NoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E07EA929CF815A004E50D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				47D72DD029E8AFAE00E37909 /* AddNoteViewController.swift */,
+				479E68E629F087DC0053E706 /* AddNotePresenter.swift */,
+				479E68E829F08CBF0053E706 /* AddNoteRouter.swift */,
 				479E68E229EED83B0053E706 /* AddNoteConfigurator.swift */,
 			);
 			path = AddNoteViewController;
@@ -246,12 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479E68E729F087DC0053E706 /* AddNotePresenter.swift in Sources */,
 				479E68D929ED67420053E706 /* NotebookVCPresenter.swift in Sources */,
 				479E68D729ED672D0053E706 /* UserDefultsService.swift in Sources */,
 				479E68DE29ED7EE60053E706 /* NotebookVCRouter.swift in Sources */,
 				47E07EAE29CF815A004E50D7 /* NotebookVC.swift in Sources */,
 				479E68E329EED83B0053E706 /* AddNoteConfigurator.swift in Sources */,
 				47E07EAA29CF815A004E50D7 /* AppDelegate.swift in Sources */,
+				479E68E929F08CBF0053E706 /* AddNoteRouter.swift in Sources */,
 				47D72DD129E8AFAE00E37909 /* AddNoteViewController.swift in Sources */,
 				47E07EAC29CF815A004E50D7 /* SceneDelegate.swift in Sources */,
 				479E68E029ED91CA0053E706 /* NotebookVCConfigurator.swift in Sources */,
