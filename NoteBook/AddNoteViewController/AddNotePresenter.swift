@@ -20,16 +20,22 @@ class AddNotePresenter {
     weak var view: AddNoteVCProtocol?
     var router: AddNoteRouterProtocol
     
+    var userDef: UserDefultsServiceProtocol
+    
     var mode: ScreenMode
     
+    var note: NoteModel?
+
     public var completion: ((String, String) -> Void)?
     
     init(view: AddNoteVCProtocol? = nil,
          router: AddNoteRouterProtocol,
-         mode: ScreenMode) {
+         mode: ScreenMode,
+         userDef: UserDefultsServiceProtocol) {
         self.view = view
         self.router = router
         self.mode = mode
+        self.userDef = userDef
     }
 }
 
@@ -45,6 +51,8 @@ extension AddNotePresenter: AddNotePresenterProtocol{
             
             view?.canEditFields(canEdit: false)
             view?.fieldsBackgroundColor()
+            view?.setupTitle(title: note?.title ?? "title")
+            view?.setupText(text: note?.text ?? "text")
         }
     }
     

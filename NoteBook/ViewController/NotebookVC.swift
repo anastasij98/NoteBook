@@ -91,7 +91,7 @@ class NoteBookViewController: UIViewController {
 
     @objc
     func addNewNote() {
-        presenter?.goToViewController(mode: .writeMode)
+        presenter?.goToViewController(mode: .writeMode, index: 0)
     }
 }
 

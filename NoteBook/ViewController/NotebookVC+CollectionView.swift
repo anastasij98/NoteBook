@@ -12,7 +12,7 @@ import UIKit
 extension NoteBookViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.goToViewController(mode: .readMode)
+        presenter?.goToViewController(mode: .readMode, index: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

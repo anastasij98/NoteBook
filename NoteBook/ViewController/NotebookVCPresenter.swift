@@ -15,7 +15,7 @@ struct NoteModel: Codable {
 protocol NotebookVCPresenterProtocol {
     
     func viewIsReady()
-    func goToViewController(mode: ScreenMode)
+    func goToViewController(mode: ScreenMode, index: Int)
     func viewWillAppear()
     func getNotesCount() -> Int
     func getItem(index: Int) -> NoteModel
@@ -47,8 +47,9 @@ extension NotebookVCPresenter: NotebookVCPresenterProtocol {
         notes = usersdefaultService.getNotes()
     }
     
-    func goToViewController(mode: ScreenMode) {
-        router.goToAddNoteViewController(mode: mode) { noteTitle, note in
+    func goToViewController(mode: ScreenMode, index: Int) {
+        router.goToAddNoteViewController(mode: mode,
+                                         note: getItem(index: index)) { noteTitle, note in
             let model = NoteModel(title: noteTitle,
                                   text: note)
             self.notes.append(model)
