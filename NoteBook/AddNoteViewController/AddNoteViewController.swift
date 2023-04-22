@@ -22,6 +22,7 @@ class AddNoteViewController: UIViewController {
     lazy var titleField: UITextField = {
         let view = UITextField()
         view.backgroundColor = .systemMint.withAlphaComponent(0.1)
+        
         return view
     }()
     
@@ -31,8 +32,6 @@ class AddNoteViewController: UIViewController {
         
         return view
     }()
-    
-    public var completion: ((String, String) -> Void)?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +80,9 @@ class AddNoteViewController: UIViewController {
     @objc
     func saveNewNote() {
         if titleField.hasText, noteField.hasText {
-            completion?(titleField.text ?? "", noteField.text)
+            presenter?.textCompletion(title: titleField.text ?? "",
+                                      text: noteField.text)
+
         }
         presenter?.saveNewNote()
         print("saved")

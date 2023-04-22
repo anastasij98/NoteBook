@@ -23,13 +23,12 @@ class AddNoteConfigurator {
         
         let viewController = AddNoteViewController()
         let router = AddNoteRouter()
-        
         let presenter = AddNotePresenter(view: viewController,
                                          router: router,
                                          mode: mode)
         router.view = viewController
         viewController.presenter = presenter
-        viewController.completion = completion
+        presenter.completion = completion
         
         return viewController
     }

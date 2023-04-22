@@ -11,6 +11,8 @@ protocol AddNotePresenterProtocol {
     
     func viewIsReady()
     func saveNewNote()
+    func textCompletion(title: String,
+                        text: String)
 }
 
 class AddNotePresenter {
@@ -19,6 +21,8 @@ class AddNotePresenter {
     var router: AddNoteRouterProtocol
     
     var mode: ScreenMode
+    
+    public var completion: ((String, String) -> Void)?
     
     init(view: AddNoteVCProtocol? = nil,
          router: AddNoteRouterProtocol,
@@ -46,5 +50,9 @@ extension AddNotePresenter: AddNotePresenterProtocol{
     
     func saveNewNote() {
         router.popViewController()
+    }
+    
+    func textCompletion(title: String, text: String) {
+        completion?(title, text)
     }
 }
