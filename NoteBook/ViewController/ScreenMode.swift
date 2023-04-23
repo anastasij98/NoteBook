@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-enum ScreenMode: CaseIterable {
+enum ScreenMode {
     
     case writeMode
-    case readMode
+    case readMode(model: NoteModel)
 }

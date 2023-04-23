@@ -24,8 +24,6 @@ class AddNotePresenter {
     
     var mode: ScreenMode
     
-    var note: NoteModel?
-
     public var completion: ((String, String) -> Void)?
     
     init(view: AddNoteVCProtocol? = nil,
@@ -46,13 +44,12 @@ extension AddNotePresenter: AddNotePresenterProtocol{
         case .writeMode:
             print(mode)
             
-        case .readMode:
+        case .readMode(let model):
             print(mode)
             
-            view?.canEditFields(canEdit: false)
             view?.fieldsBackgroundColor()
-            view?.setupView(title: note?.title ?? "title",
-                            text: note?.text ?? "text")
+            view?.setupView(title: model.title,
+                            text: model.text)
         }
     }
     

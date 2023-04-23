@@ -10,7 +10,7 @@
 		32200DAD9598F8B95F0676FA /* Pods_NoteBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BF66B0F68754CB6A620DD8 /* Pods_NoteBook.framework */; };
 		479E68D729ED672D0053E706 /* UserDefultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68D629ED672D0053E706 /* UserDefultsService.swift */; };
 		479E68D929ED67420053E706 /* NotebookVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68D829ED67420053E706 /* NotebookVCPresenter.swift */; };
-		479E68DC29ED68290053E706 /* NotebookVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68DB29ED68290053E706 /* NotebookVC+CollectionView.swift */; };
+		479E68DC29ED68290053E706 /* NotebookVC+TabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68DB29ED68290053E706 /* NotebookVC+TabelView.swift */; };
 		479E68DE29ED7EE60053E706 /* NotebookVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68DD29ED7EE60053E706 /* NotebookVCRouter.swift */; };
 		479E68E029ED91CA0053E706 /* NotebookVCConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68DF29ED91CA0053E706 /* NotebookVCConfigurator.swift */; };
 		479E68E329EED83B0053E706 /* AddNoteConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E68E229EED83B0053E706 /* AddNoteConfigurator.swift */; };
@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		479E68D629ED672D0053E706 /* UserDefultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefultsService.swift; sourceTree = "<group>"; };
 		479E68D829ED67420053E706 /* NotebookVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookVCPresenter.swift; sourceTree = "<group>"; };
-		479E68DB29ED68290053E706 /* NotebookVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotebookVC+CollectionView.swift"; sourceTree = "<group>"; };
+		479E68DB29ED68290053E706 /* NotebookVC+TabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotebookVC+TabelView.swift"; sourceTree = "<group>"; };
 		479E68DD29ED7EE60053E706 /* NotebookVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookVCRouter.swift; sourceTree = "<group>"; };
 		479E68DF29ED91CA0053E706 /* NotebookVCConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookVCConfigurator.swift; sourceTree = "<group>"; };
 		479E68E229EED83B0053E706 /* AddNoteConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteConfigurator.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 				47E07EAD29CF815A004E50D7 /* NotebookVC.swift */,
 				479E68D829ED67420053E706 /* NotebookVCPresenter.swift */,
 				479E68DD29ED7EE60053E706 /* NotebookVCRouter.swift */,
-				479E68DB29ED68290053E706 /* NotebookVC+CollectionView.swift */,
+				479E68DB29ED68290053E706 /* NotebookVC+TabelView.swift */,
 				479E68DF29ED91CA0053E706 /* NotebookVCConfigurator.swift */,
 				479E68E429F02E640053E706 /* ScreenMode.swift */,
 			);
@@ -264,7 +264,7 @@
 				47E07EAC29CF815A004E50D7 /* SceneDelegate.swift in Sources */,
 				479E68E029ED91CA0053E706 /* NotebookVCConfigurator.swift in Sources */,
 				479E68E529F02E640053E706 /* ScreenMode.swift in Sources */,
-				479E68DC29ED68290053E706 /* NotebookVC+CollectionView.swift in Sources */,
+				479E68DC29ED68290053E706 /* NotebookVC+TabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +412,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CL88TLP2K9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NoteBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -419,12 +420,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.nastya.test.NoteBook;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nastya.test.NoteBookdytgfhg6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -440,6 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CL88TLP2K9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NoteBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -447,12 +450,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.nastya.test.NoteBook;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nastya.test.NoteBookdytgfhg6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
