@@ -15,8 +15,7 @@ protocol AddNoteVCProtocol: AnyObject {
     func fieldsBackgroundColor()
     func getCompletion()
     
-    func setupTitle(title: String)
-    func setupText(text: String)
+    func setupView(title: String, text: String)
 }
 
 class AddNoteViewController: UIViewController {
@@ -84,8 +83,6 @@ class AddNoteViewController: UIViewController {
     @objc
     func saveNewNote() {
         if titleField.hasText, noteField.hasText {
-//            presenter?.textCompletion(title: titleField.text ?? "",
-//                                      text: noteField.text)
             getCompletion()
         }
         presenter?.saveNewNote()
@@ -110,11 +107,8 @@ extension AddNoteViewController: AddNoteVCProtocol {
                                   text: noteField.text)
     }
     
-    func setupTitle(title: String) {
+    func setupView(title: String, text: String) {
         titleField.text = title
-    }
-    
-    func setupText(text: String) {
         noteField.text = text
     }
 }

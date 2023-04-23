@@ -21,6 +21,7 @@ protocol NotebookVCPresenterProtocol {
     func getItem(index: Int) -> NoteModel
     func deleteRow(index: Int,
                    completion: () -> Void)
+    func didSelectRow(index: Int) 
 }
 
 class NotebookVCPresenter {
@@ -47,6 +48,11 @@ extension NotebookVCPresenter: NotebookVCPresenterProtocol {
         notes = usersdefaultService.getNotes()
     }
     
+    func didSelectRow(index: Int) {
+        goToViewController(mode: .readMode,
+                           index: index)
+    }
+    
     func goToViewController(mode: ScreenMode, index: Int) {
         router.goToAddNoteViewController(mode: mode,
                                          note: getItem(index: index)) { noteTitle, note in
@@ -71,7 +77,12 @@ extension NotebookVCPresenter: NotebookVCPresenterProtocol {
     }
     
     func getItem(index: Int) -> NoteModel {
-        notes[index]
+        if !notes.isEmpty {
+            return notes[index]
+        } else {
+            return NoteModel(title: "",
+                             text: "")
+        }
     }
 
     func deleteRow(index: Int,

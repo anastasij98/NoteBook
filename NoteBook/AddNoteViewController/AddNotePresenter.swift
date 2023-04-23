@@ -51,8 +51,8 @@ extension AddNotePresenter: AddNotePresenterProtocol{
             
             view?.canEditFields(canEdit: false)
             view?.fieldsBackgroundColor()
-            view?.setupTitle(title: note?.title ?? "title")
-            view?.setupText(text: note?.text ?? "text")
+            view?.setupView(title: note?.title ?? "title",
+                            text: note?.text ?? "text")
         }
     }
     
