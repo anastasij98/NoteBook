@@ -23,11 +23,9 @@ class AddNoteConfigurator {
         
         let viewController = AddNoteViewController()
         let router = AddNoteRouter()
-        let userDef = UserDefultsService()
         let presenter = AddNotePresenter(view: viewController,
                                          router: router,
-                                         mode: mode,
-                                         userDef: userDef)
+                                         mode: mode)
         router.view = viewController
         viewController.presenter = presenter
         presenter.completion = completion

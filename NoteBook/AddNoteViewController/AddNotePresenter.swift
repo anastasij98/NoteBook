@@ -20,7 +20,7 @@ class AddNotePresenter {
     weak var view: AddNoteVCProtocol?
     var router: AddNoteRouterProtocol
     
-    var userDef: UserDefultsServiceProtocol
+//    var userDef: UserDefultsServiceProtocol
     
     var mode: ScreenMode
     
@@ -28,12 +28,10 @@ class AddNotePresenter {
     
     init(view: AddNoteVCProtocol? = nil,
          router: AddNoteRouterProtocol,
-         mode: ScreenMode,
-         userDef: UserDefultsServiceProtocol) {
+         mode: ScreenMode) {
         self.view = view
         self.router = router
         self.mode = mode
-        self.userDef = userDef
     }
 }
 

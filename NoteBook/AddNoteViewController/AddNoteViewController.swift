@@ -98,8 +98,8 @@ extension AddNoteViewController: AddNoteVCProtocol {
     }
 
     func fieldsBackgroundColor() {
-        titleField.backgroundColor = .placeholderText
-        noteField.backgroundColor = .placeholderText
+        titleField.backgroundColor = .clear
+        noteField.backgroundColor = .clear
     }
     
     func getCompletion() {
